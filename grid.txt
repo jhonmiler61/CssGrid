@@ -1,0 +1,10 @@
+CURSO DE CSS GRID LAYOUT
+___________________________
+
+Grid Container -> elemento padre donde se asigna {display:grid}
+Grid Item -> Hijos directos de un Grid Container.
+Grid Line -> lineas divisoras horizontales y verticales.
+Grid Track -> Espacio entre dos lineas Adyacentes, filas y columnas.
+Grid Cell -> Espacio entre dos filas adyancentes y 2 columnas adyacentes.
+Grid Area -> Espacio rodeado por 4 gride lines.
+.item{contenido #$}*12 -> usando emmet lo cual nos permite crear 12 filas enumerada de item con contenido
