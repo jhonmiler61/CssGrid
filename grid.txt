@@ -7,9 +7,95 @@ Grid Line -> lineas divisoras horizontales y verticales.
 Grid Track -> Espacio entre dos lineas Adyacentes, filas y columnas.
 Grid Cell -> Espacio entre dos filas adyancentes y 2 columnas adyacentes.
 Grid Area -> Espacio rodeado por 4 gride lines.
+.container
 .item{contenido #$}*12 -> usando emmet lo cual nos permite crear 12 filas enumerada de item con contenido
 
 display: grid -> Activamos el display grid
 grid-template-columns: 200px 200px 200px; -> Para columnas en este caso, tres columnas de 200px 
 grid-template-row: 300px 300px -> para las filas -> fila 1 300px, fila 2 300px
-grid-tamplate: filas/columnas -> para ambos resumidos
+grid-template: filas/columnas -> para ambos resumidos
+grid-template: 300px 300px / 200px 200px 200px;
+
+pseudo clases para escoger un elemento
+.item:nth-of-type(4){ };
+overflow:auto; -> obtengo un scrool
+
+grid-column-gap: 30px -> espaciado en forma horizontal columnas
+grid-row-gap: 50px -> espaciado entre las filas
+grid-gap: filas columnas; ->Espaciado entre filas y columnas
+grip-gap: 10px; -> 10 pixeles entre filas y columnas 
+grid-gap: 10x 100px; -> 10 pixels entre filas, y 100px entre columnas de despaciado.
+grid-template: 300px 150px 150px / 1fr 1fr 1fr; -> 1fr cada uno representaria 33.3%
+grid-template: 300px 100px 100px / auto auto auto; -> auto  Acomoda automaticamente segun el contenido que tenga.
+grid-template: 300px 150px 100px / repeat ( 4, 1fr);  funcion de cuatro repear 1fr
+grid-template: 300px 150px 100px / repeat( 4, minmax(200px, 1fr)); funcion de minimo 200px, maximo 1fr
+grid-template: 300px 150px 100px / minmax(200px, 1fr) 1fr 1fr 1fr; las demas columnas se adpran excepto la de minmax
+grid-template: repeat(3,1fr) / repeat(4,1fr); 3 filas y 4 columnas
+heigt: 100vh; para que tome el 100% de toda la vista de altura
+
+
+...Areas
+
+    <section class="container">
+        <div class="item header">header</div>
+        <div class="item left">left</div>
+        <div class="item contenido">contenido</div>
+        <div class="item footer">footer</div>
+        </section>
+
+.container{
+display: grid;
+display-gap:10px;
+grid template: 100px 1fr 150px / 200px 1fr;
+grid-template-areas{
+	"header header"
+	"left contenido"
+	"footer footer"
+};}
+.header{ grid-area: header;}
+.left{grid-area: left;}
+.contenido{grid-area: contenido;}
+.footer{grid-area: footer;}
+
+.......... Tamaño de Columna .............
+    <section class="container">
+        <div class="item">item #1</div>
+        <div class="item">item #2</div>
+        <div class="item">item #3</div>
+        <div class="item">item #4</div>
+        <div class="item">item #5</div>
+        <div class="item">item #6</div>
+        <div class="item">item #7</div>
+        <div class="item">item #8</div>
+        <div class="item">item #9</div>
+        <div class="item">item #10</div>
+        <div class="item">item #11</div>
+        <div class="item">item #12</div>
+    </section>
+
+
+.container{
+
+display: grid;
+grid-template-columns:repeat(4,1fr);
+grid-template-rpws: repeat(4, 1fr);
+grid-gap:10px;
+height: 100vh;
+}
+
+.item:nth-of-type(1){
+grid-column-start: 1 ;      -> linea 1 de columna que empieza
+grid-column-end: 4;	    -> linea 4 de columna que termina
+grid-column:1/ 4;	    -> Forma resumida
+}
+
+.item:nth-of-type(7){
+	grid-colum; 1/ span  2 -> empieza en la primera linea y ocupa 2 espacios.
+}
+
+.item:nth-of-type(8){
+
+	grid-column: 1 / -1 -> define donde empieza y termina, al poner 1/ -1 ocupa todo.
+}
+
+
