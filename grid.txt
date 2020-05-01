@@ -98,4 +98,85 @@ grid-column:1/ 4;	    -> Forma resumida
 	grid-column: 1 / -1 -> define donde empieza y termina, al poner 1/ -1 ocupa todo.
 }
 
+para las filas:
+grid-row: 1/ span 2;
+grid-row: 2 / 4;
 
+
+
+grid: display;
+grid:template-columns: [inicio] 1fr [linea2] 1fr [Linea3] 1fr [destacado-end] 1fr [Linea5] 1fr [destacado2-end] 1fr [Linea7] 1fr [final];
+ grid-template-rows: [inicio] 200px [medio] 200px [final];
+
+.item:nth-of-type{
+grid-column: inicio / destacado-end;
+grid-row: inicio / final;
+}
+
+
+grid-auto-flow: column; ->  mueve los elementos sobrantes  a columnas implicitamente.
+grid-auto-columns: row; -> mueve los elementos sobrantes a las filas implicitamente.
+grid-auto-rows:50px 100px -> las filas de manera implicita.
+
+justify-items: end ; puede tomar  -> start, end ,center , stretch; -> alignea en columna
+align-items: end; -> start, end ,center, stretch -> aligna en filas
+
+start -> al inicio.
+end -> al final
+center -> centrado
+stretch -> ajusta a que ocupe todo el contenido
+
+Alinear un solo elemento:
+
+.item:nth-of-type(5){
+align-self: start;
+justify-self:start;
+
+justify-content: start, end, center, stretch ,space-around, space-between ,space-evenly ; -> entre columnas
+align-content: start, end, center, stretch ,space-around, space-between ,space-evenly; -> entre el contenido filas
+
+}
+
+space-around -> le da espacio alrededor de cada columna.
+space-between -> le da espacio en cada columnan menos a los costados
+space-evenly -> le da un espacio uniforme costados y dentro del contenido
+
+vertical-align: top; ->margen pequeño que sale en las imagenes
+position: absolute;
+left:0
+right:0
+bottom: 0
+top: 0
+display:none
+-> en clase padre
+display:block
+
+
+------ responsive -----------
+
+@media screen and (max-width:768px){
+.post-list{
+grid-gap:3px;
+}
+}
+
+
+
+responsive, para que se llene
+
+.container{
+display:grid;
+grid-template-columns: repeat(auto-fill, 250px);
+}
+para que el contenido no se salga de la cajita
+box-sizing: border-box;
+
+css avanzado
+.countdown span:after{
+            content: ":";
+            display: inline-block;
+            margin: 0 5px;
+}
+.countdown span:last-child:after{
+            display: none;
+ }
